@@ -2,89 +2,112 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Lightbulb, Box, Code, Cpu } from "lucide-react";
-
-const PILLARS = [
-  {
-    title: "Innovation First",
-    description: "Exploring modern engineering patterns to solve everyday digital challenges.",
-    icon: Lightbulb,
-  },
-  {
-    title: "Product Focused",
-    description: "Building, scaling, and managing proprietary digital platforms from zero to launch.",
-    icon: Box,
-  },
-  {
-    title: "Practical Learning",
-    description: "Bridging academic knowledge and real-world software engineering workflows.",
-    icon: Code,
-  },
-  {
-    title: "Technology Driven",
-    description: "Clean code, responsive design, and reliable full-stack architecture at the core.",
-    icon: Cpu,
-  },
-];
+import { ShoppingBag, Cpu, ArrowUpRight } from "lucide-react";
 
 export default function About() {
   return (
-    <section id="about" className="py-24 relative border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Narrative */}
+    <section
+      id="about"
+      className="py-16 sm:py-20 border-t border-white/10 bg-[#060913]"
+    >
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Centered Title & Description */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.45 }}
+          className="text-center max-w-2xl mx-auto space-y-3"
+        >
+          <span className="inline-block text-[11px] font-bold uppercase tracking-widest text-cyan-400">
+            About MDTT Tech Solution
+          </span>
+
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
+            Built Around{" "}
+            <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+              mdtt.net & Training & IT Solutions
+            </span>
+          </h2>
+
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            MDTT Tech Solution is the main hub behind two focused offerings:
+            an easy buy-and-sell classifieds platform at{" "}
+            <span className="text-white font-semibold">mdtt.net</span>, and{" "}
+            <span className="text-white font-semibold">
+              Training & IT Solutions
+            </span>{" "}
+            for practical IT services and hands-on skill learning.
+          </p>
+        </motion.div>
+
+        {/* Distinct Two-Column Split Bar (Different from Hero & Previous About) */}
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 rounded-2xl border border-white/10 bg-slate-900/40 overflow-hidden divide-y md:divide-y-0 md:divide-x divide-white/10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="lg:col-span-6 space-y-6"
+            transition={{ duration: 0.4 }}
+            className="p-5 sm:p-6 flex flex-col justify-between gap-4 hover:bg-white/[0.02] transition-colors"
           >
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-blue-400">
-              About MDTT Tech Solutions
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-              Who We Are
-            </h2>
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-              MDTT Tech Solutions is an emerging technology company focused on
-              building innovative digital products and delivering modern software
-              solutions. We believe in transforming ideas into impactful products
-              through technology, creativity, and continuous innovation.
-            </p>
-            <p className="text-slate-400 text-base leading-relaxed">
-              Alongside product development, we provide aspiring developers with
-              opportunities to learn, collaborate, and gain practical experience
-              by working on real-world projects.
-            </p>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-cyan-400">
+                <ShoppingBag className="w-4 h-4 shrink-0" />
+                <span className="text-[11px] font-bold uppercase tracking-wider">
+                  01 • Marketplace
+                </span>
+              </div>
+              <h3 className="text-sm sm:text-base font-bold text-white">
+                mdtt.net
+              </h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Straightforward buy-and-sell classifieds where users list items
+                quickly, browse categories, and connect directly.
+              </p>
+            </div>
+
+            <a
+              href="https://mdtt.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-xs font-semibold text-cyan-300 hover:text-cyan-200 w-fit"
+            >
+              <span>Open mdtt.net</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
           </motion.div>
 
-          {/* Right 4 Highlight Pillars */}
-          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {PILLARS.map((pillar, index) => {
-              const Icon = pillar.icon;
-              return (
-                <motion.div
-                  key={pillar.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="glass-card rounded-2xl p-6 hover:border-blue-500/40 transition-colors"
-                >
-                  <div className="h-11 w-11 rounded-xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-4">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-sm text-slate-400 leading-relaxed">
-                    {pillar.description}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.08 }}
+            className="p-5 sm:p-6 flex flex-col justify-between gap-4 hover:bg-white/[0.02] transition-colors"
+          >
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-blue-400">
+                <Cpu className="w-4 h-4 shrink-0" />
+                <span className="text-[11px] font-bold uppercase tracking-wider">
+                  02 • Tech & Learning
+                </span>
+              </div>
+              <h3 className="text-sm sm:text-base font-bold text-white">
+                Training & IT Solutions
+              </h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Practical IT support and real-world training designed to solve
+                technical needs and build job-ready skills.
+              </p>
+            </div>
+
+            <a
+              href="#products"
+              className="inline-flex items-center gap-1 text-xs font-semibold text-blue-300 hover:text-blue-200 w-fit"
+            >
+              <span>Explore IT & Training</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
+          </motion.div>
         </div>
       </div>
     </section>
